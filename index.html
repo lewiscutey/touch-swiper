@@ -81,7 +81,7 @@
             $(".box").css({
                 transition:"none"
             });
-            marginl: parseInt($('.box').css("marginLeft"))?parseInt($('.box').css("marginLeft")):0;
+            marginl = parseInt($('.box').css("marginLeft"))?parseInt($('.box').css("marginLeft")):0;
 
         });
         touch.on("body","drag",".box",function (e) {
@@ -91,7 +91,7 @@
             });
         });
         touch.on("body","dragend",".box",function (e) {
-            if(Math.abs(e.x)>200){
+            if(Math.abs(e.x)>100){
                 if(e.direction == "left"){
                     num++;
                     if(num == $(".box .box-slide").length){
@@ -109,7 +109,7 @@
                 });
             }else{
                 $(".box").css({
-                    marginLeft:-num*width,
+                    marginLeft:num*width,
                     transition:"margin-left .8s ease"
                 })
             }
